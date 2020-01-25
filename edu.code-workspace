@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"name": "Api",
+			"path": "Api/src"
+		},{
+			"name": "App",
+			"path": "src"
+		}
+	],
+	"settings": {}
+}
