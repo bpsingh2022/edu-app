@@ -1,47 +1,20 @@
 {
   "name": "edu-app",
-  "version": "0.1.0",
-  "private": true,
-  "dependencies": {
-    "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
-    "@testing-library/user-event": "^7.1.2",
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-router-dom": "^5.1.2",
-    "react-scripts": "3.3.0"
-  },
-  "scripts": {
-    "App": "react-scripts start",
-    "Api": "cd api && npm start",
-    "start": "npm-run-all -p Api App",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
-  },
+  "version": "1.0.0",
   "description": "Organized and Manage Team.",
   "main": "index.js",
+  "scripts": {
+    "Api": "cd Api && npm start",
+    "App": "cd App && npm start",
+    "start": "npm-run-all -p Api App"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bpsingh2022/edu-app.git"
   },
-  "author": "bpsingh",
-  "license": "MIT",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "bugs": {
     "url": "https://github.com/bpsingh2022/edu-app/issues"
   },

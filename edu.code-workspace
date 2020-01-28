@@ -2,10 +2,10 @@
 	"folders": [
 		{
 			"name": "Api",
-			"path": "Api/src"
+			"path": "./Api/src"
 		},{
 			"name": "App",
-			"path": "src"
+			"path": "./App/src"
 		}
 	],
 	"settings": {}
