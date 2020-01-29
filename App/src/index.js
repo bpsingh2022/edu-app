@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import graphql from 'graphql';
 import {ApolloProvider} from '@apollo/react-hooks';
 import ApolloClient from 'apollo-client';
 import {createHttpLink} from 'apollo-link-http';
@@ -16,15 +17,16 @@ import "bootstrap/dist/js/bootstrap.min.js";
 
 import * as serviceWorker from './serviceWorker';
 /*  bind graphql api  */
-const link = createHttpLink({uri: "http://localhost:3001/"});
+const link = new createHttpLink({uri: "http://localhost:3001/"});
 const cache = new InMemoryCache();
-const client = new ApolloClient({
+const AppClient = new ApolloClient({
     link,
     cache
 });//end;
 
+
 ReactDOM.render(
-    <ApolloProvider client={client}>
+    <ApolloProvider client={AppClient}>
 <App />
     </ApolloProvider>
 , document.getElementById('root'));

@@ -6,7 +6,10 @@ const Users = [
 
 export default {
     users: async (root, args, {errorName}, info)=>{
-        throw new Error('no uuu')
+                const users = await db.Users.find();
+                console.log(`request users: ${users}`);
+                console.log(`query end \n\n end`);
+        return users;
 }, //end;
 
 };//end;

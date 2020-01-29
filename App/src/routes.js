@@ -1,20 +1,23 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, Fragment, useState } from 'react';
 import { Route, BrowserRouter, Switch, Redirect } from 'react-router-dom';
+import Helmet from 'react-helmet';
 import PageNotFound from './pages/page-404';
 import Loader from './components/loader';
 
 const Public = [
-    {name: "Login", path: "login-page.jsx", url: "/login", title: "Member Login"}
+    {name: "LogIn", path: "login-page.jsx", url: "/login", title: "Member Login"},
+    {name: "SignUp", path: "signup-page.jsx", url: "/signup", title: "Member Registration"},
 ];//end;
 const Private = [
     {name: "Dashboard", path: "dashboard-page.jsx", url: "/dashboard", title: "Dashboard"},
-    {name: "User", path: "pages/user-page.jsx", url: "/user/:id", title: "Member Detail"},
+    {name: "User", path: "user-page.jsx", url: "/user/:id", title: "Member Detail"},
     {name: "Users", path: "users-page.jsx", url: "/users", title: "Registred Members"},
-    {name: "RegisterMember", path: "pages/register-page.jsx", url: "/signup", title: "Member Registration"},
+    // {name: "RegisterMember", path: "register-page.jsx", url: "/signup", title: "Member Registration"},
 
 ];//end;
 
 export default function MainRoutes (){
+    const [cn, setCn] = useState(document.title);
     return (
         <Suspense fallback={Loader}>
     <BrowserRouter>
@@ -24,7 +27,13 @@ export default function MainRoutes (){
         return <Route 
         exect="true" 
         path={val.url} 
-        render={(props)=><PageComponent {...props} />}
+        render={(props)=>(
+            <Fragment>
+                <Helmet>
+                    <title>{cn+' - '+val.title}</title>
+                </Helmet>
+        <PageComponent {...props} />
+        </Fragment>)}
         />})}
 
         {Public.map((val,i)=>{
@@ -32,7 +41,13 @@ export default function MainRoutes (){
         return <Route 
         exect="true" 
         path={val.url} 
-        render={(props)=><PageComponent {...props} />}
+        render={(props)=>(
+            <Fragment>
+                <Helmet>
+                    <title>{cn+' - '+val.title}</title>
+                </Helmet>
+        <PageComponent {...props} />
+        </Fragment>)}
         />})}
     
     <Route component={PageNotFound} />

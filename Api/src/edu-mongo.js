@@ -2,7 +2,7 @@ import Mongoose, {model, models, Schema} from 'mongoose';
 let UserModel;
 
 //Set up default mongoose connection
-const mongoDB = 'mongodb://0.0.0.0:27017/EduDatabase';
+const mongoDB = 'mongodb://0.0.0.0:27017/EduAppData';
 
 Mongoose.set('useNewUrlParser', true);
 Mongoose.set('useUnifiedTopology', true);
@@ -23,6 +23,7 @@ if(models.users){
     const UserSchema = new Schema({
         user: {type: String},
         password: {type: String},
+        rePassword: {type: String},
         createdOn: {type: Date, default: Date(Date.now())},
         lastAccess: {type: Date, default: Date(Date.now())}
     });//endSchema;

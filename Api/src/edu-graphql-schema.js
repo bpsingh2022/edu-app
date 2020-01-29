@@ -6,7 +6,15 @@ type User {
     user: String,
     password: String
 }
+input UserInput {
+    user: String,
+    password: String,
+    rePassword: String
+}
 type Query {
     users: [User!]!
+}
+type Mutation {
+    userAdd(user: UserInput): User!
 }
 `);//end;
